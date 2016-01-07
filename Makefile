@@ -10,7 +10,7 @@ clean:
 
 # target: migrate - Migrate all django applications considering app dependencies
 migrate:
-	python fastcampus/manage.py makemigrations courses
+	python fastcampus/manage.py makemigrations courses users
 	python fastcampus/manage.py migrate
 
 
