@@ -17,3 +17,9 @@ migrate:
 # target: clean_migration - folders in all django apps
 clean_migrations:
 	ls fastcampus/ | grep -v -e 'manage.py' | xargs -I{} rm -rf fastcampus/{}/migrations/
+
+
+# target: loaddata_all - load all data from commands
+loaddata_all:
+	python fastcampus/manage.py loaddata_users
+	python fastcampus/manage.py loaddata_courses

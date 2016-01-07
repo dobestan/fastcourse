@@ -89,3 +89,15 @@ class Command(BaseCommand):
                     slug=course_information.get('slug'),
                     price=course_information.get('price'),
                 )
+
+        for course in Course.objects.all():
+            self.stdout.write("{type_name}, {name}, {price}".format(
+                type_name=course.type.name,
+                name=course.name,
+                price=course.price,
+            ))
+
+        self.stdout.write("Successfully created {type_count} types, and {course_count} courses.".format(
+            type_count=Type.objects.count(),
+            course_count=Course.objects.count(),
+        ))
