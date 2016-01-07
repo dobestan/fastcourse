@@ -23,3 +23,4 @@ clean_migrations:
 loaddata_all:
 	python fastcampus/manage.py loaddata_users
 	python fastcampus/manage.py loaddata_courses
+	python fastcampus/manage.py loaddata_enrollments

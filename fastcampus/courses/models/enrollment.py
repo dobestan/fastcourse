@@ -21,3 +21,9 @@ class Enrollment(models.Model):
     class Meta:
         verbose_name = '수강신청'
         verbose_name_plural = verbose_name
+
+    def __str__(self):
+        return "<{user_name}> Enrolled on <{course_name}>".format(
+            user_name=self.user.name,
+            course_name=self.course.name,
+        )
