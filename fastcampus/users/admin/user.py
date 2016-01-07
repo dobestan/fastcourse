@@ -13,6 +13,9 @@ class UserModelAdmin(DefaultUserAdmin):
 
         'name',
         'address',
+
+        'phonenumber',
+        'phonenumber_preprocessed',
     )
 
     list_filter = DefaultUserAdmin.list_filter + (

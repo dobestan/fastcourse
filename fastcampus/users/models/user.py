@@ -12,12 +12,29 @@ class User(AbstractUser):
 
     name = models.CharField(
         max_length=8,
+        verbose_name='이름',
     )
 
     address = models.CharField(
         max_length=256,
         blank=True,
         null=True,
+        verbose_name='주소지',
+    )
+
+    # This field can be used in pre-processing practice.
+    phonenumber = models.CharField(
+        max_length=32,
+        blank=True,
+        null=True,
+        verbose_name='연락처',
+    )
+
+    phonenumber_preprocessed = models.CharField(
+        max_length=16,
+        blank=True,
+        null=True,
+        verbose_name='전처리된 연락처',
     )
 
     class Meta:
