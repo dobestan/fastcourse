@@ -1,0 +1,8 @@
+,id,name,slug,price,type_id
+0,1,업무자동화를 위한 파이썬 입문 CAMP,dev_camp_python4auto,90,1
+1,2,파이썬을 활용한 데이터분석 CAMP,data_camp_pda,150,1
+2,3,데이터 사이언스 SCHOOL,data_school_ds,240,2
+3,4,웹 프로그래밍 SCHOOL,dev_school_wp,240,2
+4,5,디지털 마케팅 SCHOOL,mktg_school_dmktg,240,2
+5,6,"피키캐스트와 함께하는 ""탈우주적 데이터 분석 꿀팁"" 무료 세미나",pikicast_seminar_160115,0,3
+6,7,"프로그래밍 입문자들을 위한 ""불금의 코딩 TALK""",dev_event_bkt_151030_behind,0,3

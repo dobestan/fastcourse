@@ -2,3 +2,5 @@ Django
 dj-database-url
 mysqlclient
 fake-factory
+pandas
+openpyxl

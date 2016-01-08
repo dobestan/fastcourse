@@ -24,3 +24,9 @@ loaddata_all:
 	python fastcampus/manage.py loaddata_users
 	python fastcampus/manage.py loaddata_courses
 	python fastcampus/manage.py loaddata_enrollments
+
+
+# target: export_all - export all data from database
+export_all:
+	mysqldump -u $(DATABASE_USERNAME) -p fastcourses > data/fastcourses.sql
+	python fastcampus/manage.py export
