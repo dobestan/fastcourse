@@ -4,3 +4,6 @@ mysqlclient
 fake-factory
 pandas
 openpyxl
+requests
+lxml
+cssselect
