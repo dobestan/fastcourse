@@ -8,10 +8,12 @@ class ManagerModelAdmin(admin.ModelAdmin):
     list_display = admin.ModelAdmin.list_display + (
         'name',
         'position',
+        'gender',
         'description',
     )
 
     list_filter = admin.ModelAdmin.list_filter + (
+        'gender',
         'position',
     )
 

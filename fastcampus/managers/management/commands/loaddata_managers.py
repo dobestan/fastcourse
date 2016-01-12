@@ -49,6 +49,29 @@ class Command(BaseCommand):
                     description=description,
                 )
 
+
+        # 남자 매니저님들의 경우에는 성별을 남자로 변경
+        # 이 부분은 자동화 하지 못한 점이 아쉽지만 딱히 할 수 있는 방법이 없었다.
+        # 남자 매니저님들 수가 여자 매니저님들 수 보다 적어서 여자를 기본으로 하였다.
+
+        male_manager_names = [
+            '이강민',
+            '이성훈',
+            '신해동',
+            '류지환',
+            '정의석',
+            '이찬희',
+            '최동혁',
+        ]
+
+        for male_manager_name in male_manager_names:
+            male_manager = Manager.objects.get(
+                name=male_manager_name,
+            )
+
+            male_manager.gender = '남자'
+            male_manager.save()
+
         self.stdout.write("Successfully created {manager_count} managers.".format(
             manager_count=Manager.objects.count(),
         ))

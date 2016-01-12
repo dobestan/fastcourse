@@ -28,6 +28,12 @@ class Manager(models.Model):
         verbose_name='설명',
     )
 
+    gender = models.CharField(
+        max_length=2,
+        default='여자',
+        verbose_name='성별',
+    )
+
     objects = ManagerManager()
 
     class Meta:
