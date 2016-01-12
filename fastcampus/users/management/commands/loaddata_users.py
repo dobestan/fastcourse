@@ -28,6 +28,12 @@ class Command(BaseCommand):
         username_prefix = 'fastcampus'
         user_count = 100
 
+        popular_domains = [
+            "naver.com",
+            "daum.net",
+            "gmail.com",
+        ]
+
         # Delete legacy users.
         User.objects.filter(username__startswith=username_prefix).delete()
 
@@ -36,6 +42,12 @@ class Command(BaseCommand):
             name = fake.name()
             address = fake.address().replace('\n', '').replace('  ', ' ')  # Faker address generator contains newline character.
             age = random.randint(20, 50)
+
+            email_domain = random.choice(popular_domains)
+            email = "{username}@{email_domain}".format(
+                username=username,
+                email_domain=email_domain,
+            )
 
             phonenumber_preprocessed = "010" + "".join([str(random.randint(0, 9)) for i in range(0, 8)])
             phonenumber = phonenumber_preprocessed
@@ -58,15 +70,17 @@ class Command(BaseCommand):
                 phonenumber=phonenumber,
                 phonenumber_preprocessed=phonenumber_preprocessed,
                 age=age,
+                email=email,
             )
 
-            self.stdout.write("{username}, {name}, {address}, {phonenumber_preprocessed}, {phonenumber}, {age}".format(
+            self.stdout.write("{username}, {name}, {age}, {email}, {address}, {phonenumber_preprocessed}, {phonenumber}".format(
                 username=username,
                 name=name,
+                age=age,
+                email=email,
                 address=address,
                 phonenumber_preprocessed=phonenumber_preprocessed,
                 phonenumber=phonenumber,
-                age=age,
             ))
 
         self.stdout.write("Successfully created {user_count} users.".format(

@@ -15,6 +15,8 @@ class UserModelAdmin(DefaultUserAdmin):
         'address',
         'age',
 
+        'email',
+
         'phonenumber',
         'phonenumber_preprocessed',
     )
