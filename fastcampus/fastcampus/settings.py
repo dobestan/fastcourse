@@ -32,6 +32,7 @@ INSTALLED_APPS = [
     'fastcampus',
     'courses',
     'users',
+    'managers',
 ]
 
 MIDDLEWARE_CLASSES = [
