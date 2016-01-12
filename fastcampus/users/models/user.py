@@ -37,6 +37,12 @@ class User(AbstractUser):
         verbose_name='전처리된 연락처',
     )
 
+    age = models.PositiveIntegerField(
+        blank=True,
+        null=True,
+        verbose_name='나이',
+    )
+
     class Meta:
         verbose_name = '유저'
         verbose_name_plural = verbose_name

@@ -9,6 +9,7 @@ class ManagerModelAdmin(admin.ModelAdmin):
         'name',
         'position',
         'gender',
+        'age',
         'description',
     )
 

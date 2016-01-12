@@ -35,6 +35,7 @@ class Command(BaseCommand):
             username = '%s_%03d' % (username_prefix, i+1, )
             name = fake.name()
             address = fake.address().replace('\n', '').replace('  ', ' ')  # Faker address generator contains newline character.
+            age = random.randint(20, 50)
 
             phonenumber_preprocessed = "010" + "".join([str(random.randint(0, 9)) for i in range(0, 8)])
             phonenumber = phonenumber_preprocessed
@@ -56,14 +57,16 @@ class Command(BaseCommand):
                 address=address,
                 phonenumber=phonenumber,
                 phonenumber_preprocessed=phonenumber_preprocessed,
+                age=age,
             )
 
-            self.stdout.write("{username}, {name}, {address}, {phonenumber_preprocessed}, {phonenumber}".format(
+            self.stdout.write("{username}, {name}, {address}, {phonenumber_preprocessed}, {phonenumber}, {age}".format(
                 username=username,
                 name=name,
                 address=address,
                 phonenumber_preprocessed=phonenumber_preprocessed,
                 phonenumber=phonenumber,
+                age=age,
             ))
 
         self.stdout.write("Successfully created {user_count} users.".format(

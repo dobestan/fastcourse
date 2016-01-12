@@ -34,6 +34,12 @@ class Manager(models.Model):
         verbose_name='성별',
     )
 
+    age = models.PositiveIntegerField(
+        blank=True,
+        null=True,
+        verbose_name='나이',
+    )
+
     objects = ManagerManager()
 
     class Meta:

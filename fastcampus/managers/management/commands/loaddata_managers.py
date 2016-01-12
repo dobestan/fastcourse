@@ -1,4 +1,5 @@
 import os
+import random
 
 from django.conf import settings
 from django.core.management.base import BaseCommand
@@ -36,6 +37,7 @@ class Command(BaseCommand):
                 name = manager_element.cssselect('.mk-toggle-title strong')[0].text
                 position = manager_element.cssselect('.mk-toggle-title')[0].text_content().replace(name, '').replace('|', '').strip()
                 description = manager_element.cssselect('.mk-toggle-pane')[0].text_content().replace('\n', ' ')
+                age = random.randint(20, 30)
 
                 self.stdout.write("{name}, {position}".format(
                     name=name,
@@ -43,11 +45,16 @@ class Command(BaseCommand):
                     # description=description,
                 ))
 
-                manager = Manager.objects.get_or_create(
+                manager, manager_created = Manager.objects.get_or_create(
                     name=name,
                     position=position,
                     description=description,
                 )
+
+                manager.position = position
+                manager.description = description
+                manager.age = age
+                manager.save()
 
 
         # 남자 매니저님들의 경우에는 성별을 남자로 변경
