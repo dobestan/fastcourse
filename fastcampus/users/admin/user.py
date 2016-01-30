@@ -14,6 +14,11 @@ class UserModelAdmin(DefaultUserAdmin):
         'name',
         'address',
         'age',
+        'is_male',
+
+        'date_joined',
+        'date_called',
+        'date_enrolled',
 
         'email',
 
@@ -22,6 +27,7 @@ class UserModelAdmin(DefaultUserAdmin):
     )
 
     list_filter = DefaultUserAdmin.list_filter + (
+        'is_male',
     )
 
     search_fields = DefaultUserAdmin.search_fields + (
