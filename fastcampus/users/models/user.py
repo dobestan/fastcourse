@@ -37,10 +37,27 @@ class User(AbstractUser):
         verbose_name='전처리된 연락처',
     )
 
+    is_male = models.BooleanField(
+        default=True,
+        verbose_name='남자',
+    )
+
     age = models.PositiveIntegerField(
         blank=True,
         null=True,
         verbose_name='나이',
+    )
+
+    date_called = models.DateTimeField(
+        blank=True,
+        null=True,
+        verbose_name='첫번째 전화 문의일',
+    )
+
+    date_enrolled = models.DateTimeField(
+        blank=True,
+        null=True,
+        verbose_name='첫번째 유료 강좌 신청일',
     )
 
     class Meta:
